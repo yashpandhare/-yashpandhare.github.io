@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Yash Pandhare</title>
+<meta name="description" content="Yash Pandhare, backend engineer in Pune. Java, Python, AWS and LLM-based features.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <div class="intro">
+      <h1>Yash Pandhare</h1>
+      <p class="tagline">Backend engineer in Pune. Java, Python, AWS, and a lot of LLM work lately.</p>
+    </div>
+    <nav class="links" aria-label="Links">
+      <a href="mailto:yashpandhare2309@gmail.com">Email</a>
+      <a href="https://linkedin.com/in/yashpandhare">LinkedIn</a>
+      <a href="https://github.com/yashpandhare">GitHub</a>
+      <a href="resume.pdf">Resume</a>
+    </nav>
+  </div>
+</header>
+
+<nav class="section-nav" aria-label="Sections">
+  <div class="wrap">
+    <a href="#about">About</a>
+    <a href="#work">Work</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<main class="wrap">
+
+  <section class="row" id="about">
+    <h2>About</h2>
+    <div>
+      <p>
+        I've been at NiCE for a little over three years, starting as an intern in February 2023, and I'm now a Software Engineer there.
+        Most of that time I've worked on the backend of an analytics product for contact centers:
+        Spring Boot services, Python Lambdas, and a natural-language-to-SQL feature built on AWS Bedrock.
+      </p>
+      <p>
+        The parts of the job I liked most were debugging (race conditions, dependency conflicts, things that only break under load)
+        and security work. I was the Security Champion for my team, and more recently I've been working on FedRAMP remediation
+        across a group of services on the Cognigy platform.
+      </p>
+      <p class="note">Open to new backend and GenAI roles, and to full-stack work too.</p>
+    </div>
+  </section>
+
+  <section class="row" id="work">
+    <h2>Work</h2>
+    <div>
+      <div class="company">
+        <h3>NiCE <span class="place">Pune</span></h3>
+        <ul class="roles">
+          <li><span class="date">2026.03 – present</span> Software Engineer</li>
+          <li><span class="date">2023.07 – 2026.03</span> Associate Software Engineer</li>
+          <li><span class="date">2023.02 – 2023.07</span> Software Development Intern</li>
+        </ul>
+      </div>
+      <p class="lead-in">Some of the things I worked on:</p>
+      <ul class="points">
+        <li>Added retrieval over stored conversation history (RAG) to our text-to-SQL service. It removed three or more LLM calls from every request.</li>
+        <li>Reworked our prompt templates and cut token usage by 20-30%. Over time I made 170+ merged changes to the Lambda API and its prompts, including multilingual questions and moving to newer Claude models.</li>
+        <li>Found a write conflict between Redis and DynamoDB that made about 30% of our load-test runs fail. After the fix it was 0%.</li>
+        <li>As Security Champion I ran our Veracode and BlackDuck reviews and got our high and medium findings from 30+ down to zero.</li>
+        <li>FedRAMP (NIST SP 800-53) remediation on the Cognigy platform with 4+ teams and 10+ services: SSRF checks, TLS for Kafka and gRPC, keeping credentials out of logs, audit logging. Mostly TypeScript.</li>
+        <li>Moved our service metrics from CloudWatch to OpenTelemetry and Grafana together with the SRE team, and wrote the alert rules (87 of them, in Grafana Mimir) as a Helm chart deployed through Argo CD.</li>
+        <li>Got a GDPR data-erasure Lambda ready for production: cross-account IAM roles, full unit-test coverage, security scans, alarms, and an operational readiness review with SRE.</li>
+        <li>Connected Snowflake to a Spring Boot service (prepared statements, HikariCP, key-pair auth, retries), ran chaos tests with Gremlin on our Lambdas, and wrote a few Claude Code agents and skills that other teams now use.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="row" id="projects">
+    <h2>Projects</h2>
+    <div>
+      <article class="project">
+        <span class="date">2026</span>
+        <div>
+          <h3>NGO website <span class="status">in progress</span></h3>
+          <p>
+            A website for an NGO, built under <a href="https://github.com/CodeStudioKurkheda">CodeStudioKurkheda</a>. Phase 1 is a working Next.js site
+            with placeholder content (home, about, our work, stories, events, gallery, donate, volunteer, contact), organised by feature with
+            unit tests in Vitest. Before writing code I wrote the design docs for the whole thing: feature specs, a high-level design and
+            eight low-level designs covering Razorpay donations, a Sanity CMS so staff can edit content themselves, email receipts and multiple languages.
+          </p>
+          <p class="stack">Next.js · React · TypeScript · Tailwind CSS · Vitest</p>
+        </div>
+      </article>
+
+      <article class="project">
+        <span class="date">2025</span>
+        <div>
+          <h3>Production monitoring tool <span class="status">won the company Sparkathon</span></h3>
+          <p>
+            An internal tool that uses an AI agent to write a daily health and root-cause report for 9 production environments.
+            It costs about $0.07 a month to run and saves 2-3 hours of manual checking every day.
+          </p>
+          <p class="stack">Python · AWS Bedrock · CloudWatch</p>
+        </div>
+      </article>
+
+      <article class="project">
+        <span class="date">2023</span>
+        <div>
+          <h3><a href="https://github.com/yashpandhare/microservices-using-spring-boot-HotelRating-Service-">Hotel rating microservices</a></h3>
+          <p>A learning project from my internship: separate Spring Boot services for users and hotels that talk to each other over REST.</p>
+          <p class="stack">Java · Spring Boot</p>
+        </div>
+      </article>
+
+      <article class="project">
+        <span class="date">2022</span>
+        <div>
+          <h3>Car accident detection</h3>
+          <p>College project. I trained a YOLOv3 model on about 4,000 labelled images to spot accidents in a live camera feed.</p>
+          <p class="stack">Python · YOLOv3</p>
+        </div>
+      </article>
+
+      <article class="project">
+        <span class="date">2022</span>
+        <div>
+          <h3>Parallel programming in C</h3>
+          <p>
+            College coursework with OpenMP:
+            <a href="https://github.com/yashpandhare/Implement-OpenMP-hello-sum">hello/sum</a>,
+            <a href="https://github.com/yashpandhare/vec-scalar-addition-Parallel-prog">vector-scalar addition</a>,
+            <a href="https://github.com/yashpandhare/dotProduct-and-matrix-addition">dot product and matrix addition</a>,
+            <a href="https://github.com/yashpandhare/Study-and-implementation-of-Synchronization-constructs.">synchronization constructs</a> and
+            <a href="https://github.com/yashpandhare/Study-and-implementation-of-schedule-no-wait-reduction-ordered-and-collapse-clauses">scheduling clauses</a>.
+          </p>
+          <p class="stack">C · OpenMP</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="row" id="skills">
+    <h2>Skills</h2>
+    <dl class="skills">
+      <dt>Languages</dt><dd>Java, Python, TypeScript, SQL</dd>
+      <dt>Backend</dt><dd>Spring Boot, REST APIs, microservices, Hibernate, Maven, multithreading</dd>
+      <dt>AI</dt><dd>RAG, text-to-SQL, prompt engineering, agents, AWS Bedrock, Claude Code</dd>
+      <dt>AWS</dt><dd>Lambda, DynamoDB, IAM, CloudWatch, ECS/Fargate, CloudFormation, CDK</dd>
+      <dt>Data</dt><dd>Snowflake, DynamoDB, Redis, OpenSearch</dd>
+      <dt>Infra</dt><dd>OpenTelemetry, Grafana, Kubernetes, Helm, Argo CD, Docker, Gremlin</dd>
+      <dt>Security, testing</dt><dd>Veracode, BlackDuck, Sonar, JUnit, Mockito, Cucumber, Gatling</dd>
+      <dt>Frontend</dt><dd>Next.js, React (personal projects)</dd>
+    </dl>
+  </section>
+
+  <section class="row" id="education">
+    <h2>Education</h2>
+    <div>
+      <p><strong>B.Tech, Computer Science and Engineering</strong><br>
+      Walchand College of Engineering, Sangli <span class="muted">· 2019 – 2023 · GPA 7.86/10</span></p>
+    </div>
+  </section>
+
+  <section class="row" id="contact">
+    <h2>Contact</h2>
+    <div>
+      <p>
+        The easiest way to reach me is email:
+        <a href="mailto:yashpandhare2309@gmail.com?subject=Hello%20Yash">yashpandhare2309@gmail.com</a>.
+        If you're hiring for a backend, GenAI or full-stack role, or want to talk about anything on this page, write to me and I'll reply within a day or two.
+        I'm also on <a href="https://linkedin.com/in/yashpandhare">LinkedIn</a>.
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="wrap site-footer">
+  <p>Last updated November 2026.</p>
+</footer>
+
+<script src="nav.js" defer></script>
+</body>
+</html>
